@@ -1117,18 +1117,122 @@ function upgradedMentors(){const mentors=CONFIG.mentors||[];return section("ment
 
 function upgradedVideo(){const v=CONFIG.video,src=embedUrl(v.url);return section("video","PROJECT EXPLANATION",v.note,src?h("div",{class:"frame"},h("iframe",{src,title:v.title,allow:"accelerometer; clipboard-write; encrypted-media; picture-in-picture",allowfullscreen:"",loading:"lazy"})):h("div",{class:"empty"},h("h3",null,"YouTube link pending"),h("p",null,"Paste the watch, youtu.be or embed URL into CONFIG.video.url.")),src?linkButton(v.url,"WATCH ON YOUTUBE"):null);}
 function upgradedResources(){const d=CONFIG.drive,ready=d.url&&!/^PASTE_/i.test(d.url);return section("resources","PROJECT RESOURCES","Keep project files configurable and add links when they are ready.",h("div",{class:"resource-card card"},h("h2",null,"Project Drive"),h("p",null,"Documentation, PPT, research and design files can be linked here without changing the page structure."),ready?linkButton(d.url,"OPEN PROJECT DRIVE",true):h("div",{class:"empty"},h("p",null,"Paste the Google Drive link into CONFIG.drive.url."))));}
-function upgradedContact(){return section("contact","CONNECT WITH TEAM LOGICOR","Send the LogiCor team a message about SILENTNET.",h("div",{class:"contact-grid"},h("div",{class:"card"},h("span",{class:"eyebrow"},"PROJECT"),h("h2",null,"SILENTNET"),h("p",null,"Hybrid ML-assisted adaptive audio enhancement and active noise control"),h("p",null,"Team LogiCor · Rathinam Technical Campus, Coimbatore"),h("p",null,"SIH26052 · Smart India Hackathon 2026"),h("p",{class:"contact-note"},"Your message will be sent to logicor248@gmail.com.")),h("form",{class:"card contact-form",action:"https://formsubmit.co/logicor248@gmail.com",method:"POST"},h("input",{type:"hidden",name:"_subject",value:"SILENTNET website contact message"}),h("input",{type:"hidden",name:"_template",value:"table"}),h("input",{type:"hidden",name:"_captcha",value:"false"}),h("label",null,"NAME",h("input",{type:"text",name:"name",placeholder:"Your name",autocomplete:"name",required:""})),h("label",null,"EMAIL",h("input",{type:"email",name:"email",placeholder:"you@example.com",autocomplete:"email",required:""})),h("label",null,"MESSAGE",h("textarea",{name:"message",placeholder:"Write your message",rows:"6",required:""})),h("button",{class:"btn btn-primary",type:"submit"},"SEND MESSAGE"))));}
+function upgradedContact(){return section("contact","CONNECT WITH TEAM LOGICOR","Stay connected with the LogiCor team.",h("div",{class:"contact-grid"},h("div",{class:"card"},h("span",{class:"eyebrow"},"PROJECT"),h("h2",null,"SILENTNET"),h("p",null,"Hybrid ML-assisted adaptive audio enhancement and active noise control"),h("p",null,"Team LogiCor · Rathinam Technical Campus, Coimbatore"),h("p",null,"SIH26052 · Smart India Hackathon 2026")),h("form",{class:"card contact-form contact-message-box",action:"https://formsubmit.co/logicor248@gmail.com",method:"POST"},h("h3",null,"CONTACT US"),h("input",{type:"hidden",name:"_subject",value:"SILENTNET website contact message"}),h("input",{type:"hidden",name:"_template",value:"table"}),h("input",{type:"hidden",name:"_captcha",value:"false"}),h("label",null,"NAME",h("input",{type:"text",name:"name",placeholder:"Your name",autocomplete:"name",required:""})),h("label",null,"EMAIL",h("input",{type:"email",name:"email",placeholder:"you@example.com",autocomplete:"email",required:""})),h("label",null,"MESSAGE",h("textarea",{name:"message",placeholder:"Write your message",rows:"6",required:""})),h("button",{class:"btn btn-primary",type:"submit"},"SEND MESSAGE"))));}
 
 function upgradedResearch(){return section("research","RESEARCH & TECHNICAL FOUNDATION","Research-driven development of adaptive audio enhancement.",h("div",{class:"card papers-wrap"},...CONFIG.papers.map((p,i)=>h("div",{class:"paper"},h("span",{class:"n"},String(i+1).padStart(2,"0")),h("div",null,h("h3",null,h("a",{href:p.url,target:"_blank",rel:"noopener noreferrer"},p.title)),h("p",{class:"src"},p.source),h("p",{class:"take"},p.take))))),visual(CONFIG.visuals.research,"VISUAL / RESEARCH → ALGORITHM → SYSTEM","Research → Algorithm → DSP / AI design → SILENTNET architecture","media-holder wide"));}
 function upgradedArchitecture(){return section("architecture","SYSTEM ARCHITECTURE","Dual-microphone sensing + edge DSP + adaptive noise cancellation + hardware bypass.",h("div",{class:"architecture-map"},h("div",null,"ENVIRONMENTAL NOISE → REFERENCE MIC / INMP441 → ESP32-S3 SuperMini → USB REFERENCE AUDIO"),h("div",null,"HEADSET MIC → ANDROID SoC → AI + DSP + ANC → SPEECH PROTECTION → CLEAN VOICE → RADIO TX"),h("div",{class:"rx-line"},"RADIO RX ───────────────────────────────→ HEADSET SPEAKER · DIRECT RECEIVE PATH")),visual(CONFIG.visuals.architecture,"DIAGRAM / COMPLETE SYSTEM ARCHITECTURE","Primary mic, reference mic, ESP32-S3 SuperMini, Android SoC, ANC processing, radio TX/RX, PTT, battery and bypass","media-holder wide"));}
 
 function viewLongHome(){
   viewHome();
+  const heroMediaHost=document.querySelector(".hero-media");
+  const persistentMedia=heroMediaHost&&heroMediaHost.querySelector("video, img");
+  if(persistentMedia){
+    const siteBackground=h("div",{class:"site-video-background","aria-hidden":"true"},persistentMedia,h("div",{class:"site-video-overlay"}));
+    document.body.prepend(siteBackground);
+    heroMediaHost.replaceChildren();
+    if(persistentMedia.tagName==="VIDEO"){
+      persistentMedia.loop=true;
+      persistentMedia.muted=true;
+      persistentMedia.setAttribute("playsinline","");
+      const backgroundPlay=persistentMedia.play();
+      if(backgroundPlay&&backgroundPlay.catch) backgroundPlay.catch(()=>{});
+    }
+  }
   const options=document.getElementById("options"); if(options) options.remove();
   main.append(upgradedProblem(),section("matters","WHY THIS MATTERS","A communication enhancement system has to improve clarity without becoming a new failure point.",h("div",{class:"grid3"},...[['SPEECH CLARITY','Background noise can mask important voice information.'],['REAL-TIME REQUIREMENT','Communication systems cannot depend on processing with noticeable delay.'],['SYSTEM RELIABILITY','Enhancement should not become a single point of failure.']].map((x,i)=>h("article",{class:"card"},h("span",{class:"eyebrow"},"0"+(i+1)),h("h3",null,x[0]),h("p",null,x[1])))),visual(CONFIG.visuals.communicationChallenge,"VISUAL / COMMUNICATION CHALLENGE","Voice waveform entering a noisy environment and becoming difficult to distinguish","media-holder wide")),upgradedSolution(),upgradedArchitecture(),upgradedWorkflow(),upgradedInnovation(),upgradedFailSafe(),upgradedTargets(),upgradedPrototype(),upgradedResearch(),upgradedTeam(),upgradedMentors(),upgradedVideo(),upgradedResources(),upgradedContact());
   document.title="SILENTNET — Adaptive audio enhancement for defence communication";
   document.body.classList.add("single-home");
   bindTilt();
+  bindBackgroundVideo();
+}
+
+/* One background video, two behaviors: normal cinematic playback in the hero,
+   then smooth scroll-delta control for the rest of the homepage. */
+function bindBackgroundVideo(){
+  const video=document.querySelector(".site-video-background video");
+  const hero=document.querySelector(".single-home .hero");
+  if(!video||!hero||reduced) return;
+
+  const VIDEO_SCROLL_SPEED=.012;
+  const SEEK_THRESHOLD=.015;
+  const SMOOTHING=.18;
+  let videoMode="hero", metadataReady=video.readyState>=1;
+  let heroBottom=0, lastScrollY=window.scrollY;
+  let targetVideoTime=0, currentVideoTime=0;
+
+  video.muted=true;
+  video.autoplay=true;
+  video.loop=true;
+  video.setAttribute("playsinline","");
+
+  function measure(){ heroBottom=hero.offsetTop+hero.offsetHeight; }
+  function wrapTime(time,duration){
+    if(!duration||!Number.isFinite(duration)) return 0;
+    return ((time%duration)+duration)%duration;
+  }
+  function startScrub(){
+    videoMode="scrub";
+    video.pause();
+    video.loop=false;
+    video.autoplay=false;
+    currentVideoTime=video.currentTime;
+    targetVideoTime=video.currentTime;
+  }
+  function startHero(){
+    videoMode="hero";
+    video.loop=true;
+    video.autoplay=true;
+    const play=video.play();
+    if(play&&play.catch) play.catch(()=>{});
+  }
+  function onScroll(){
+    const currentScrollY=window.scrollY;
+    const previousScrollY=lastScrollY;
+    const scrollDelta=currentScrollY-lastScrollY;
+    lastScrollY=currentScrollY;
+    const nextMode=currentScrollY<heroBottom?"hero":"scrub";
+    if(nextMode!==videoMode){
+      if(nextMode==="scrub") startScrub();
+      else startHero();
+    }
+    if(videoMode==="scrub"){
+      const scrubDelta=previousScrollY<heroBottom&&currentScrollY>=heroBottom
+        ?currentScrollY-heroBottom
+        :scrollDelta;
+      if(metadataReady&&Number.isFinite(video.duration)&&video.duration>0){
+        targetVideoTime=wrapTime(targetVideoTime+scrubDelta*VIDEO_SCROLL_SPEED,video.duration);
+      }
+    }
+  }
+  function animateVideo(){
+    if(videoMode==="scrub"&&metadataReady&&video.readyState>=2&&Number.isFinite(video.duration)&&video.duration>0){
+      const duration=video.duration;
+      let difference=targetVideoTime-currentVideoTime;
+      if(difference>duration/2) difference-=duration;
+      if(difference<-duration/2) difference+=duration;
+      currentVideoTime=wrapTime(currentVideoTime+difference*SMOOTHING,duration);
+      if(Math.abs(video.currentTime-currentVideoTime)>SEEK_THRESHOLD){
+        video.currentTime=currentVideoTime;
+      }
+    }
+    requestAnimationFrame(animateVideo);
+  }
+  function onMetadata(){
+    metadataReady=true;
+    if(videoMode==="scrub"){
+      currentVideoTime=video.currentTime;
+      targetVideoTime=video.currentTime;
+    }else{
+      const play=video.play();
+      if(play&&play.catch) play.catch(()=>{});
+    }
+  }
+  measure();
+  video.addEventListener("loadedmetadata",onMetadata,{once:true});
+  addEventListener("scroll",onScroll,{passive:true});
+  addEventListener("resize",measure,{passive:true});
+  onScroll();
+  requestAnimationFrame(animateVideo);
 }
 
 /* =========================================================================

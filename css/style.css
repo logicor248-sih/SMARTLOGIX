@@ -4,6 +4,10 @@
    structure overrides and is the safe place for future visual refinements. */
 .single-home .bar{display:none}
 .single-home main{padding-top:0}
+.single-home .site-video-background{position:fixed;inset:0;width:100%;height:100%;z-index:2;overflow:hidden;pointer-events:none;background:#07090c}
+.single-home .site-video-background video,.single-home .site-video-background img{width:100%;height:100%;object-fit:cover;object-position:62% 38%;display:block}
+.single-home .site-video-overlay{position:absolute;inset:0;background:rgba(7,9,12,.76);pointer-events:none}
+.single-home main,.single-home footer{position:relative;z-index:3}
 .single-home .back{display:none}
 .single-home .portfolio-section{scroll-margin-top:1rem}
 .single-home .portfolio-section + .portfolio-section{border-top:1px solid rgba(32,38,45,.48)}
@@ -23,6 +27,7 @@
 .single-home .member-links a{display:inline-block;color:var(--signal);font:500 .7rem var(--mono);border:1px solid rgba(200,255,0,.28);border-radius:999px;padding:.24rem .55rem;text-decoration:none}
 .single-home .contact-note{color:var(--signal);font-size:.82rem;margin-top:1.5rem}
 .single-home .contact-form{display:grid;gap:.9rem}
+.single-home .contact-message-box h3{font:600 1.2rem var(--display);letter-spacing:.06em;color:var(--ink);margin:0 0 .35rem}
 .single-home .contact-form label{display:grid;gap:.35rem;color:var(--signal);font:500 .68rem var(--mono);letter-spacing:.1em}
 .single-home .contact-form input,.single-home .contact-form textarea{width:100%;box-sizing:border-box;border:1px solid var(--glass-line);border-radius:8px;background:rgba(7,9,12,.72);color:var(--ink);padding:.75rem .8rem;font:400 .88rem var(--body);resize:vertical}
 .single-home .contact-form input:focus,.single-home .contact-form textarea:focus{outline:2px solid rgba(200,255,0,.55);outline-offset:2px;border-color:var(--signal)}
@@ -82,6 +87,10 @@
 
 @media(max-width:520px){
   .single-home .mentor-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:760px){
+  .single-home .site-video-overlay{background:rgba(7,9,12,.82)}
 }
 
 @media(max-width:380px){
