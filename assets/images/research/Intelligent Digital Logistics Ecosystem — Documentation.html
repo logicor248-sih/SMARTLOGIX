@@ -1,0 +1,435 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}</style><style>:root{color-scheme:light dark;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}}:root[data-theme="dark"]{color-scheme:dark;--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}:root[data-theme="light"]{color-scheme:light}@media print{:root,:root[data-theme="dark"]{color-scheme:light;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}}body{background:var(--md-bg);color:var(--md-text);max-width:720px;margin:0 auto;padding:32px;display:flex;flex-direction:column;gap:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'SF Pro','Segoe UI',sans-serif;overflow-wrap:break-word}body>:first-child{margin-top:0}h1,h2,h3,h4,h5,h6{margin:6px 0 0;line-height:1.25;font-weight:600;text-wrap:balance}h1{font-size:1.35em}h2{font-size:1.15em;color:var(--md-muted)}h3,h4,h5,h6{font-size:1em}p,ul,ol,blockquote,table,pre,hr{margin:0}strong{font-weight:600}a{color:var(--md-link);text-decoration:none}a:hover{text-decoration:underline}ul,ol{display:flex;flex-direction:column;gap:6px;padding-left:22px}ul{list-style:disc}ol{list-style:decimal}:is(li,td,th)>*+:is(p,ul,ol,blockquote){margin-top:6px}blockquote{display:flex;flex-direction:column;gap:10px;border-left:2px solid var(--md-rule);padding-left:10px;color:var(--md-muted)}:not(pre)>code{background:var(--md-fill);padding:1px 3px;border-radius:4px;font:.92em 'SF Mono',ui-monospace,Menlo,Consolas,monospace}a>code{background:none;color:inherit}pre{background:var(--md-fill);padding:10px 12px;border-radius:6px;overflow-x:auto;font:12px/1.5 'SF Mono',ui-monospace,Menlo,Consolas,monospace;margin-block:4px}pre code{background:none;padding:0;font:inherit}table{width:100%;border-collapse:separate;border-spacing:2px;font:inherit}th,td{padding:6px 8px;border-radius:3px;text-align:left;vertical-align:top}th{background:var(--md-fill-strong);font-weight:600}td{background:var(--md-fill)}:is(th,td) :not(pre)>code{background:transparent}hr{border:0;border-top:1px solid var(--md-rule-strong);margin-block:10px}img{max-width:100%;height:auto;border-radius:4px}</style>
+</head><body>
+<h1>Intelligent Digital Logistics Ecosystem</h1>
+<h3>Project Documentation</h3>
+<blockquote>
+<p><strong>One-line idea:</strong> A unified digital platform that connects load owners, brokers, transport managers, drivers, trucks, cargo, and customers — using AI and IoT to manage the entire transportation journey, improve driver safety, optimize routes, and identify gaps in logistics infrastructure.</p>
+</blockquote>
+<hr>
+<h2>1. The Problem</h2>
+<p>Logistics today involves many disconnected people and systems:</p>
+<ul>
+<li>The <strong>broker</strong> knows the load.</li>
+<li>The <strong>transport manager</strong> knows the truck.</li>
+<li>The <strong>driver</strong> knows the actual journey.</li>
+<li>The <strong>customer</strong> just wants a delivery status.</li>
+<li>The <strong>fleet operator</strong> only sees vehicle data.</li>
+</ul>
+<p>No single person or system has the <em>complete</em> picture. On top of that:</p>
+<ul>
+<li>Driver safety is usually handled as a separate system from logistics planning.</li>
+<li>Infrastructure demand (parking, fuel, rest stops) is hard to understand by looking at individual trips.</li>
+</ul>
+<p><strong>Our project connects all of these pieces into one system.</strong></p>
+<hr>
+<h2>2. The Three Layers of the System</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Digital Logistics Platform</strong></td>
+<td>Web/mobile software connecting broker, manager, driver, and customer</td>
+</tr>
+<tr>
+<td><strong>2. Smart Truck</strong></td>
+<td>IoT hardware installed in the vehicle</td>
+</tr>
+<tr>
+<td><strong>3. Infrastructure Intelligence</strong></td>
+<td>AI analysis of aggregated data to guide city/highway planning</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid">flowchart TD
+    A[Our System] --&gt; B[Digital Logistics]
+    A --&gt; C[Smart Truck]
+    A --&gt; D[Infrastructure Intelligence]
+</pre>
+<hr>
+<h2>3. Layer 1 — Digital Logistics Platform</h2>
+<p>This is the core software layer, connecting four types of users:</p>
+<h3>🏭 Load Owner / Broker</h3>
+<p>Posts a load with details such as origin, destination, weight, cargo type, and pickup date.</p>
+<h3>🚚 Transport Manager</h3>
+<p>Sees available loads and can:</p>
+<ul>
+<li>Bid for or accept a load</li>
+<li>Select a truck and assign a driver</li>
+<li>Start and monitor the trip</li>
+<li>Monitor vehicle and driver status</li>
+<li>Handle alerts</li>
+</ul>
+<h3>👨‍✈️ Driver</h3>
+<p>Receives the assigned trip and follows the journey stages:
+<code>Pickup → Route → Rest → Fuel → Delivery</code></p>
+<h3>📦 Customer</h3>
+<p>Gets a live tracking link showing status: Load booked → Truck assigned → Pickup completed → In transit → Delivered.</p>
+<p><strong>Key idea:</strong> everyone looks at the <em>same</em> shipment, but each person sees only the information relevant to their role.</p>
+<hr>
+<h2>4. Layer 2 — Smart Truck (Hardware)</h2>
+<p>Physical hardware installed in the truck, built around an <strong>ESP32-S3</strong> microcontroller.</p>
+<pre class="mermaid">flowchart TD
+    Truck[Truck] --&gt; ESP[ESP32-S3]
+    ESP --&gt; GPS[GPS]
+    ESP --&gt; IMU[IMU]
+    ESP --&gt; Sensors[Sensors]
+    Sensors --&gt; Fuel[Fuel Sensor]
+    Sensors --&gt; Door[Door Sensor]
+    Sensors --&gt; Temp[Temperature Sensor]
+    ESP --&gt; SOS[SOS Button]
+    ESP --&gt; Cam[Driver Camera]
+</pre>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GPS</strong></td>
+<td>Tracks location, speed, direction, and route</td>
+</tr>
+<tr>
+<td><strong>IMU</strong></td>
+<td>Detects harsh braking, sudden acceleration, impacts, abnormal movement</td>
+</tr>
+<tr>
+<td><strong>Fuel sensor</strong></td>
+<td>Detects unexpected fuel-level changes</td>
+</tr>
+<tr>
+<td><strong>Door sensor</strong></td>
+<td>Detects unexpected cargo door openings</td>
+</tr>
+<tr>
+<td><strong>Temperature sensor</strong></td>
+<td>Monitors temperature-sensitive cargo (food, medicine)</td>
+</tr>
+<tr>
+<td><strong>SOS button</strong></td>
+<td>Instantly sends driver ID, truck ID, GPS location, time, and emergency event to the manager</td>
+</tr>
+<tr>
+<td><strong>Driver camera</strong></td>
+<td>Feeds the driver-safety (fatigue detection) system</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>5. Driver Safety System</h2>
+<p>A cabin camera monitors the driver in real time using computer vision.</p>
+<pre><code>Camera → OpenCV/AI → Eye closure, Yawning, Head position → Fatigue Risk
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🟢 Normal</td>
+<td>Driver condition normal</td>
+</tr>
+<tr>
+<td>🟡 Warning</td>
+<td>Fatigue indicators detected — consider taking a break</td>
+</tr>
+<tr>
+<td>🔴 High risk</td>
+<td>High fatigue risk — rest recommended</td>
+</tr>
+</tbody>
+</table>
+<h3>Going further than detection</h3>
+<p>Most existing systems stop at &quot;driver is drowsy.&quot; Ours goes one step further:</p>
+<pre><code>Fatigue detected → Check GPS → Check route → Find nearby facilities
+→ Check distance/suitability → Recommend action
+</code></pre>
+<p>Example output: <em>&quot;🅿️ Truck parking/rest facility 9 km ahead.&quot;</em></p>
+<p>This is the core philosophy of the project: <strong>Detect → Decide → Assist.</strong></p>
+<hr>
+<h2>6. AI Logistics Assistant</h2>
+<p>During the trip, the AI continuously evaluates the situation and can proactively suggest:</p>
+<ul>
+<li>⛽ <strong>Fuel</strong> — &quot;Fuel level is low. Suitable fuel station 12 km ahead.&quot;</li>
+<li>🅿️ <strong>Parking</strong> — &quot;Recommended truck parking 8 km ahead.&quot;</li>
+<li>🔧 <strong>Service</strong> — &quot;Vehicle service facility available 15 km ahead.&quot;</li>
+<li>😴 <strong>Rest</strong> — &quot;Driver fatigue indicators detected. Rest recommended.&quot;</li>
+<li>🚨 <strong>Emergency</strong> — &quot;SOS received. Emergency location shared with fleet manager.&quot;</li>
+</ul>
+<hr>
+<h2>7. Smart Logistics Route</h2>
+<p>A normal navigation app asks: <em>&quot;What is the fastest route?&quot;</em>
+Our system asks: <strong>&quot;What is the most suitable route for this truck, driver, and shipment?&quot;</strong></p>
+<p>The route engine factors in:
+Traffic • Truck restrictions • Truck capacity/type • Fuel • Driver condition • Rest requirements • Parking • Service facilities • Delivery deadline</p>
+<p>→ Output: a <strong>logistics-aware route</strong>, not just the shortest one.</p>
+<hr>
+<h2>8. Cargo Monitoring</h2>
+<p>Once the truck is on the road, the system watches for:</p>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Trigger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Route deviation</strong></td>
+<td>Truck leaves the expected route → Alert</td>
+</tr>
+<tr>
+<td><strong>Cargo door opens</strong></td>
+<td>Unexpected door opening → Alert</td>
+</tr>
+<tr>
+<td><strong>Fuel anomaly</strong></td>
+<td>Unexpected fuel decrease → Flag for manager verification</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Important: the system flags anomalies for human verification — it does <strong>not</strong> automatically label every anomaly as theft.</p>
+</blockquote>
+<hr>
+<h2>9. Complete Journey Flow</h2>
+<pre class="mermaid">flowchart TD
+    A[Load Owner posts load] --&gt; B[Transport Manager accepts/bids]
+    B --&gt; C[Select truck &amp; assign driver]
+    C --&gt; D[Pickup &amp; cargo loaded]
+    D --&gt; E[Trip started]
+    E --&gt; F[GPS Tracking]
+    E --&gt; G[Driver Monitoring]
+    F --&gt; H[Route Analysis]
+    G --&gt; I[Fatigue Analysis]
+    H --&gt; J[AI Engine]
+    I --&gt; J
+    J --&gt; K[Fuel / Parking / Rest recommendations]
+    K --&gt; L[Delivery]
+    L --&gt; M[Customer notified]
+</pre>
+<hr>
+<h2>10. Layer 3 — Infrastructure Intelligence</h2>
+<p>This is what connects the project to the <strong>smart city / infrastructure planning</strong> theme.</p>
+<p>Instead of monitoring one truck at a time, the system aggregates data across many trips: truck movement, driver rest requests, parking searches, fuel stops, service requests, delivery density, and emergency events.</p>
+<h3>Example insight</h3>
+<p>For a corridor with 5,000 trucks passing through:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Observation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Truck traffic</td>
+<td>Very High</td>
+</tr>
+<tr>
+<td>Parking availability</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Rest demand</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Service facilities</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Emergency access</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<p>→ The system flags this as a <strong>🔴 Logistics Infrastructure Pressure Zone</strong>, suggesting a possible need for more truck parking, rest facilities, service centres, fuel infrastructure, loading/unloading areas, or emergency support.</p>
+<h3>Scope — what this project does <em>not</em> try to solve</h3>
+<p>The project deliberately stays focused on <strong>logistics-related</strong> infrastructure, not general smart-city problems:</p>
+<p>❌ Water management · ❌ Electricity distribution · ❌ Garbage collection</p>
+<p>Instead, it focuses on:</p>
+<ul>
+<li>Truck parking (high demand + low supply)</li>
+<li>Loading zones (high delivery activity + insufficient areas)</li>
+<li>Fuel/service infrastructure (heavy freight + insufficient support)</li>
+<li>Emergency access (high freight movement + long distance to emergency facilities)</li>
+<li>Distribution centres (high delivery concentration → possible need for local hubs)</li>
+</ul>
+<hr>
+<h2>11. Complete System Architecture</h2>
+<pre class="mermaid">flowchart TD
+    LB[Load Broker / Shipper] --&gt;|Load| TM[Transport Manager Dashboard]
+    TM --&gt;|Truck + Driver| ST[Smart Truck: GPS, IMU, Fuel, Door, Temp, SOS, Camera]
+    ST --&gt; GW[IoT / 4G Gateway]
+    GW --&gt; CLOUD[Cloud / API]
+    CLOUD --&gt; DB[Database]
+    CLOUD --&gt; AI[AI Engine]
+    CLOUD --&gt; RT[Real-Time Layer]
+    DB --&gt; MD[Manager Dashboard]
+    AI --&gt; DA[Driver App]
+    RT --&gt; CT[Customer Tracking]
+    DB --&gt; AD[Analytics Dashboard]
+    DA --&gt; REC[AI Recommendations]
+    REC --&gt; ROUTE[Route / Navigation]
+    REC --&gt; SAFE[Safety: Fatigue, SOS, Risk]
+    REC --&gt; RES[Resources: Parking, Fuel, Service, Emergency]
+    RES --&gt; INFRA[Infrastructure Analytics]
+    INFRA --&gt; CITY[City / Highway Planning]
+</pre>
+<hr>
+<h2>12. Team Role Split</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Responsibilities</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frontend / UI</strong></td>
+<td>Manager dashboard, broker dashboard, customer tracking, maps, analytics</td>
+<td>React / Next.js</td>
+</tr>
+<tr>
+<td><strong>Backend</strong></td>
+<td>Auth, users, loads, trucks, drivers, trips, orders, APIs</td>
+<td>Node.js / FastAPI</td>
+</tr>
+<tr>
+<td><strong>Mobile / Driver App</strong></td>
+<td>Driver login, trip screen, navigation, alerts, SOS, delivery confirmation</td>
+<td>React Native / Flutter</td>
+</tr>
+<tr>
+<td><strong>AI</strong></td>
+<td>Driver drowsiness &amp; behaviour, load-to-truck matching, route recommendation, risk prediction</td>
+<td>Python + OpenCV + PyTorch</td>
+</tr>
+<tr>
+<td><strong>IoT / Hardware</strong></td>
+<td>ESP32, GPS, IMU, fuel/door sensors, SOS, communication</td>
+<td>ESP32 + MQTT</td>
+</tr>
+<tr>
+<td><strong>Data / Infrastructure</strong></td>
+<td>Freight heatmap, parking demand, facility analysis, infrastructure pressure map</td>
+<td>PostgreSQL + Python + GIS/Mapbox</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>13. MVP vs. Future Roadmap</h2>
+<blockquote>
+<p>⚠️ Don't present all three phases as if they'll be built at once — show judges a clear, staged plan.</p>
+</blockquote>
+<h3>Phase 1 — MVP</h3>
+<p>Load posting → Truck assignment → Driver assignment → GPS tracking → Customer tracking → Driver fatigue detection → Smart parking/fuel recommendation → SOS</p>
+<h3>Phase 2 — Extended Features</h3>
+<p>Fuel monitoring, cargo monitoring, route optimization, vehicle diagnostics, advanced AI</p>
+<h3>Phase 3 — Infrastructure Intelligence</h3>
+<p>Infrastructure pressure analysis, freight heatmaps, demand prediction, infrastructure planning, city authority integration</p>
+<hr>
+<h2>14. What Makes This Project Different</h2>
+<blockquote>
+<p>&quot;We are not building another GPS tracker or another load marketplace.&quot;</p>
+</blockquote>
+<p>Existing systems typically handle <strong>Load + GPS + Fleet + Driver + Cargo + Customer</strong> as separate pieces.</p>
+<p>Our platform connects them into <strong>one digital logistics journey</strong>, and uses the combined data to deliver:</p>
+<p><strong>AI Assistance + Driver Safety + Infrastructure Intelligence</strong></p>
+<hr>
+<h2>15. The 30-Second Pitch</h2>
+<blockquote>
+<p>&quot;Our idea is to digitize the complete logistics journey. A broker or shipper posts a load, a transport manager selects and assigns a suitable truck and driver, and once the cargo is picked up, our IoT device continuously sends the truck's location and vehicle information to the platform. The driver gets AI-based route, rest, parking, fuel and service recommendations, while the manager and customer get real-time shipment information. We also monitor driver fatigue, vehicle anomalies, cargo events and emergencies. Finally, when data from many trips is aggregated, we can identify areas where truck parking, rest facilities, service centres or other logistics resources are insufficient. So the system doesn't just manage one truck — it creates intelligence about the entire logistics network.&quot;</p>
+</blockquote>
+
+
+<!--claude-mermaid-runtime-begin:3477-->
+<style>.mermaid-diagram{margin-block:4px}.mermaid-diagram svg{display:block;margin:0 auto;max-width:100%;height:auto}</style>
+<script src="/_runtime/mermaid-11.16.1.min.js"></script>
+<script>(function(){
+var CFG={"palettes":{"light":{"surface":"#f4efe4","text":"#42392e","line":"#8a7f6d","border":"#7a6c52","bg":"#fffdf8"},"dark":{"surface":"#262b34","text":"#f2f3f5","line":"#a8adb8","border":"#9aa4b8","bg":"#1f232b"}}};
+if(typeof mermaid==='undefined')return;
+var pres=Array.prototype.slice.call(document.querySelectorAll('pre.mermaid')).filter(function(p){if(p.hasAttribute('data-claude-mermaid-claimed'))return false;p.setAttribute('data-claude-mermaid-claimed','1');return true;});
+if(!pres.length)return;
+var mq=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
+var root=document.documentElement;
+var items=pres.map(function(pre){
+var mount=document.createElement('div');mount.className='mermaid-diagram';
+return {pre:pre,mount:mount,src:pre.textContent||''};
+});
+var seq=0;
+var renderGen=0;
+var lastKey='';
+function pageBg(fallback){
+var els=[document.body,document.documentElement];
+for(var i=0;i<els.length;i++){
+var c=els[i]&&getComputedStyle(els[i]).backgroundColor;
+if(c&&c!=='transparent'&&c!=='rgba(0, 0, 0, 0)')return c;
+}
+return fallback;
+}
+function render(){
+var theme=root.getAttribute('data-theme');
+var dark=theme==='dark'||(!!(mq&&mq.matches)&&theme!=='light');
+var pal=dark?CFG.palettes.dark:CFG.palettes.light;
+var bg=pageBg(pal.bg);
+var key=(dark?'d':'l')+'|'+bg;
+if(key===lastKey)return;
+lastKey=key;
+var gen=++renderGen;
+var font=getComputedStyle(document.body).fontFamily||'sans-serif';
+var nat={useMaxWidth:false};
+mermaid.initialize({
+startOnLoad:false,securityLevel:'strict',theme:'base',
+flowchart:nat,sequence:nat,er:nat,state:nat,class:nat,pie:nat,
+gantt:nat,journey:nat,timeline:nat,gitGraph:nat,mindmap:nat,xyChart:nat,
+quadrantChart:nat,sankey:nat,c4:nat,requirement:nat,block:nat,
+packet:nat,kanban:nat,architecture:nat,radar:nat,
+themeVariables:{background:bg,mainBkg:pal.surface,primaryColor:pal.surface,
+primaryTextColor:pal.text,lineColor:pal.line,primaryBorderColor:pal.border,
+nodeBorder:pal.border,clusterBorder:pal.border,edgeLabelBackground:bg,
+clusterBkg:'rgba(127,127,127,0.07)',titleColor:pal.text,
+darkMode:dark,rowOdd:bg,rowEven:'rgba(127,127,127,0.07)',
+attributeBackgroundColorOdd:bg,attributeBackgroundColorEven:'rgba(127,127,127,0.07)',
+fontSize:'16px',fontFamily:font},
+themeCSS:'.node rect, .node circle, .node polygon, .node path, .cluster rect { stroke-width: 2px; }'
+});
+items.forEach(function(it){
+var id='claude-mermaid-'+seq++;
+mermaid.render(id,it.src).then(function(r){
+if(gen!==renderGen)return;
+var prev=it.pre.previousElementSibling;
+if(prev&&prev.className==='mermaid-diagram'&&prev!==it.mount)return;
+it.mount.innerHTML=r.svg;
+if(!it.mount.parentNode)it.pre.parentNode.insertBefore(it.mount,it.pre);
+it.pre.style.display='none';
+},function(){
+var scratch=document.getElementById(id);
+if(scratch)scratch.parentNode.removeChild(scratch);
+scratch=document.getElementById('d'+id);
+if(scratch)scratch.parentNode.removeChild(scratch);
+if(gen!==renderGen)return;
+if(it.mount.parentNode)it.mount.parentNode.removeChild(it.mount);
+it.pre.style.display='';
+});
+});
+}
+render();
+if(mq&&mq.addEventListener)mq.addEventListener('change',render);
+if(typeof MutationObserver!=='undefined')new MutationObserver(render).observe(root,{attributes:true,attributeFilter:['data-theme']});
+})();</script>
+<!--claude-mermaid-runtime-end-->
+</body></html>

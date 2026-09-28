@@ -100,3 +100,71 @@
   .single-home .hero .lede{font-size:.9rem}
   .single-home .cue{font-size:.62rem;letter-spacing:.12em}
 }
+
+/* SmartLogix replaceable media slots. Empty paths render as intentional
+   technical placeholders; valid paths are promoted to real media on load. */
+.single-home .smart-media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.5rem}
+.single-home .smart-media-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.single-home .smart-media-card{min-width:0}
+.single-home .smart-media-slot{position:relative;display:flex;align-items:stretch;overflow:hidden;min-height:180px;aspect-ratio:16/9;border:1px solid rgba(63,224,200,.2);border-radius:var(--r);background:linear-gradient(135deg,rgba(11,23,33,.98),rgba(5,10,15,.98));box-shadow:var(--shadow)}
+.single-home .smart-media-slot.ratio-4-3{aspect-ratio:4/3}
+.single-home .smart-media-slot.ratio-1-1{aspect-ratio:1/1}
+.single-home .smart-media-slot img{display:block;width:100%;height:100%;object-fit:cover}
+.single-home .smart-placeholder{display:grid;place-items:center;width:100%;min-height:100%;padding:1.2rem;box-sizing:border-box;text-align:center;position:relative;isolation:isolate}
+.single-home .smart-placeholder:before,.single-home .smart-placeholder:after{content:"";position:absolute;inset:12%;border:1px solid rgba(63,224,200,.12);transform:skewX(-12deg);z-index:-1}
+.single-home .smart-placeholder:after{inset:22%;border-color:rgba(242,166,59,.13);transform:skewX(12deg)}
+.single-home .smart-placeholder-copy{display:grid;justify-items:center;gap:.42rem;max-width:34ch}
+.single-home .smart-placeholder-icon{display:grid;place-items:center;width:3rem;height:3rem;border:1px solid rgba(63,224,200,.42);border-radius:50%;color:var(--signal);font:500 1.35rem var(--mono);box-shadow:0 0 30px rgba(63,224,200,.12)}
+.single-home .smart-placeholder-label{color:var(--reference);font:500 .62rem var(--mono);letter-spacing:.13em}
+.single-home .smart-placeholder-title{color:var(--ink);font:600 1rem var(--display);letter-spacing:.07em}
+.single-home .smart-placeholder-description{color:var(--mute);font-size:.78rem;line-height:1.5}
+.single-home .smart-placeholder-spec{color:#638293;font:400 .62rem var(--mono);letter-spacing:.05em}
+.single-home .smart-media-card>h3{margin:.8rem 0 .25rem;font-size:1rem}
+.single-home .smart-media-card>p{margin:0;color:var(--mute);font-size:.82rem}
+@media(max-width:760px){
+  .single-home .smart-media-grid,.single-home .smart-media-grid.three{grid-template-columns:1fr}
+  .single-home .smart-media-slot{min-height:160px}
+}
+
+/* Active SmartLogix layout safeguards: keep long technical content inside the
+   viewport while preserving the existing visual system and section rhythm. */
+.single-home{overflow-x:clip}
+.single-home .wrap,.single-home .grid2,.single-home .grid3,.single-home .contact-grid,.single-home .metric-grid,.single-home .timeline,.single-home .step-list{min-width:0}
+.single-home .card,.single-home .step,.single-home .mentor-profile,.single-home .prototype-card{min-width:0;overflow-wrap:anywhere}
+.single-home img,.single-home video{max-width:100%}
+.single-home .portfolio-section{scroll-margin-top:1.25rem}
+.single-home .architecture-map>div{min-width:0;overflow-wrap:anywhere}
+.single-home .step p,.single-home .smart-placeholder-description,.single-home .smart-placeholder-spec{overflow-wrap:anywhere}
+/* The SmartLogix renderer builds its own overview panel, so it does not use
+   the legacy IntersectionObserver that reveals .opt cards. */
+.single-home .smart-nav .opt{opacity:1;translate:0 0}
+
+@media (min-width:761px) and (max-width:1100px){
+  .single-home .wrap{width:calc(100% - 3rem)}
+  .single-home .hero-grid{padding-left:2rem;padding-right:2rem}
+}
+
+@media (max-width:760px){
+  .single-home .wrap{width:calc(100% - 2rem)}
+  .single-home .hero{min-height:100svh;padding:5.75rem 0 3.25rem}
+  .single-home .hero-grid{padding-left:1rem;padding-right:1rem}
+  .single-home .hero-copy{width:100%;max-width:none}
+  .single-home .hero h1{font-size:clamp(2.15rem,11vw,3.4rem);overflow-wrap:anywhere}
+  .single-home .hero .hero-subtitle{font-size:clamp(1.05rem,5vw,1.6rem);overflow-wrap:anywhere}
+  .single-home .hero .lede{max-width:38ch}
+  .single-home .hero-media img,.single-home .hero-media video{object-position:60% 50%}
+  .single-home .cta-row{width:100%;gap:.65rem}
+  .single-home .cta-row .btn{width:100%;min-height:44px}
+  .single-home .smart-media-slot{min-height:0;aspect-ratio:16/9}
+  .single-home .smart-media-slot.ratio-4-3{aspect-ratio:4/3}
+  .single-home .page{padding-top:4rem;padding-bottom:4rem}
+  .single-home .page h1{font-size:clamp(1.65rem,8vw,2.35rem);overflow-wrap:anywhere}
+  .single-home .panel{padding:3.5rem 0}
+  .single-home .panel-head{gap:1rem}
+}
+
+@media (max-width:380px){
+  .single-home .wrap{width:calc(100% - 1.1rem)}
+  .single-home .hero-grid{padding-left:.55rem;padding-right:.55rem}
+  .single-home .cta-row{flex-direction:column;align-items:stretch}
+}
